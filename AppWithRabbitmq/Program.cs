@@ -46,7 +46,7 @@ class Program
 
 
 
-        static EMailMessage TypeMeil()
+        static EMailMessage TypeMeil() //inna nazwa
         {
             Console.WriteLine("Type sender e-mail:");
             string from = Console.ReadLine();

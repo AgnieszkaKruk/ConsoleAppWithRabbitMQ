@@ -39,7 +39,7 @@ class Program
 
                 channel.BasicAck(ea.DeliveryTag, false);
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" [>] Done");
+                Console.WriteLine("Done");
                 Console.ForegroundColor = ConsoleColor.Gray;
             };
 
