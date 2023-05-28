@@ -1,8 +1,7 @@
 ﻿using RabbitMQ.Client;
 using System.Text;
 using Newtonsoft.Json;
-using AppWithRabbitmq.Producent;
-
+using static AppWithRabbitmq.Producent.MakeValidEmail;
 
 class Program
 {
@@ -19,10 +18,7 @@ class Program
                                  autoDelete: false,
                                  arguments: null);
 
-
-
-            var emailMessage = TypeMeil();
-
+            var emailMessage = EnterEmail();
 
             var messageJson = JsonConvert.SerializeObject(emailMessage);
             var body = Encoding.UTF8.GetBytes(messageJson);
@@ -30,43 +26,17 @@ class Program
             var properties = channel.CreateBasicProperties();
             properties.Persistent = true;
 
-
             channel.BasicPublish(exchange: "",
                                  routingKey: "email_queue",
                                  properties,
                                  body: body);
 
             Console.WriteLine("Email message sent.");
-
         }
 
         Console.WriteLine("Press any key to exit.");
         Console.ReadKey(true);
 
-
-
-
-        static EMailMessage TypeMeil() //inna nazwa
-        {
-            Console.WriteLine("Type sender e-mail:");
-            string from = Console.ReadLine();
-
-            Console.WriteLine("Type recipient e-mail:");
-            string to = Console.ReadLine();
-
-            Console.WriteLine("Type e-mail subject:");
-            string subject = Console.ReadLine();
-
-            Console.WriteLine("Type e-mail message:");
-            string message = Console.ReadLine();
-
-            Console.WriteLine("Type e-mail provider or nothing:");
-            string provider = Console.ReadLine();
-            EMailMessage emailMessage = new EMailMessage(from, to, subject, message, provider);
-
-            return emailMessage;
-
-        }
     }
 }
 

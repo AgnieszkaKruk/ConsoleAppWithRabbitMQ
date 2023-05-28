@@ -1,11 +1,8 @@
-﻿using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-
-using System.Text;
+﻿using AppWithRabbitmq.Consumer;
 using Newtonsoft.Json;
-
-using AppWithRabbitmq.Consumer;
-
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
 
 class Program
 {
@@ -51,6 +48,7 @@ class Program
             Console.ReadKey(true);
         }
     }
-
   
+
+
 }

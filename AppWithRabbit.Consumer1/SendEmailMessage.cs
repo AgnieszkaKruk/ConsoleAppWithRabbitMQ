@@ -1,14 +1,10 @@
-﻿using System.Net;
-using System.Net.Mail;
-using System.Text;
-using AppWithRabbitmq.Consumer.EmailProviders;
+﻿using AppWithRabbitmq.Consumer.EmailProviders;
 using AppWithRabbitmq.Consumer.SendingEmailProviders;
 using AppWithRabbitmq.Producent;
 namespace AppWithRabbitmq.Consumer
 {
     public class SendEmailMessage
     {
-
         public static async Task SendEmail(EMailMessage emailMessage)
         {
             IEmailProvider provider;
@@ -17,34 +13,24 @@ namespace AppWithRabbitmq.Consumer
 
             if (!string.IsNullOrEmpty(emailProvider))
             {
-                if (emailProvider == "sendgrid")
+                if (emailProvider == "sendgrid" || emailProvider == "mandrill" || emailProvider == "mailgun")
                 {
-                    provider = new SenGridEmailProvider();
+                    provider = new SendWithEmailProvider();
                 }
-                else if (emailProvider == "mailgun")
-                {
-                    provider = new MailgunEmailProvider();
-                }
-                else if (emailProvider == "mandrill")
-                {
-                    provider = new MandrillEmailProvider();
-                }
-
                 else
                 {
-                    Console.WriteLine("Unsupported email provider. Email will be send by StmpClient");
-                    provider = new SendingEmailBySmtp();
+                    Console.WriteLine("Unsupported provider. Email will be send by StmpClient");
+                    provider = new SendEmailBySmtp();
                 }
             }
-
             else
             {
-                provider = new SendingEmailBySmtp();
+                Console.WriteLine("You don't type provider. Email will be send by StmpClient");
+                provider = new SendEmailBySmtp();
             }
 
             provider.SendEmailWithProvider(emailMessage);
         }
-
 
     }
 }

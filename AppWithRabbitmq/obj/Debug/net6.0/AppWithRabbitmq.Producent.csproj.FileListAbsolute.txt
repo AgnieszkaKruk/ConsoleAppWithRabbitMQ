@@ -17,3 +17,6 @@ C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\obj\Debug\net6.0\refi
 C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\obj\Debug\net6.0\AppWithRabbitmq.Producent.pdb
 C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\obj\Debug\net6.0\AppWithRabbitmq.Producent.genruntimeconfig.cache
 C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\obj\Debug\net6.0\ref\AppWithRabbitmq.Producent.dll
+C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Dell\source\repos\AppWithRabbitmq\AppWithRabbitmq\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
